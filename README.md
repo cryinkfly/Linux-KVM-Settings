@@ -270,7 +270,8 @@ I have already published a [video on my YouTube channel](https://www.youtube.com
 
 If you get this failure message by running the "default" network:
 
-    sudo virsh net-start default
+    sudo virsh net-start default # or
+    sudo virsh net-autostart default
     error: Failed to start network default
     error: internal error: Failed to apply firewall rules /sbin/iptables -w --table filter --list-rules:
     libvirt: error : cannot execute binary /sbin/iptables: Permission denied
@@ -281,7 +282,8 @@ You can temporarily bypass this issue with these commands:
     sudo systemctl stop firewalld # If installed & configured firewalld
     sudo systemctl restart libvirtd # If installed & configured firewalld
     sudo systemctl start firewalld # If installed & configured firewalld
-    sudo virsh net-start default
+    sudo virsh net-start default # or
+    sudo virsh net-autostart default
 
 ---
 
