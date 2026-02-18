@@ -153,13 +153,13 @@ And here the correct vfio-pci ids:
 
     rpm-ostree install virt-install libvirt-daemon-config-network libvirt-daemon-kvm qemu-kvm virt-manager virt-viewer guestfs-tools libguestfs-tools virt-top bridge-utils edk2-ovmf
     
-    sudo rpm-ostree kargs --append-if-missing="rhgb" --append-if-missing="amd_iommu=on" --append-if-missing="iommu=pt" --append-if-missing="video=efifb:off" --append-if-missing="rd.driver.pre=vfio_pci" --append-if-missing="kvm.ignore_msrs=1" --append-if-missing="kvm.report_ignored_msrs=0"  --reboot # For Intel CPU: intel_iommu=on
+    rpm-ostree kargs --append-if-missing="rhgb" --append-if-missing="amd_iommu=on" --append-if-missing="iommu=pt" --append-if-missing="video=efifb:off" --append-if-missing="rd.driver.pre=vfio_pci" --append-if-missing="kvm.ignore_msrs=1" --append-if-missing="kvm.report_ignored_msrs=0"  --reboot # For Intel CPU: intel_iommu=on
 
-    sudo rpm-ostree kargs \
+    rpm-ostree kargs \
       --append-if-missing="vfio-pci.ids=1002:7422,1002:ab28,1b21:2142" \
       --reboot
 
-    sudo rpm-ostree initramfs \
+    rpm-ostree initramfs \
       --enable \
       --arg="--add-drivers" \
       --arg="vfio vfio_iommu_type1 vfio_pci kvm kvm_amd" \
@@ -168,7 +168,7 @@ And here the correct vfio-pci ids:
     sudo systemctl enable --now libvirtd
     grep -E '^libvirt:' /usr/lib/group | sudo tee -a /etc/group
     sudo usermod -aG libvirt $USER
-    sudo reboot
+    systemctl reboot
 
 ---
 
