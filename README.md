@@ -165,9 +165,9 @@ And here the correct vfio-pci ids:
       --arg="vfio vfio_iommu_type1 vfio_pci kvm kvm_amd" \
       --reboot
 
-    sudo systemctl enable libvirtd
-    sudo usermod -aG libvirt $(whoami)
-
+    sudo systemctl enable --now libvirtd
+    grep -E '^libvirt:' /usr/lib/group | sudo tee -a /etc/group
+    sudo usermod -aG libvirt $USER
     sudo reboot
 
 ---
