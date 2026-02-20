@@ -1,3 +1,7 @@
+>[!WARNING]
+>This project has been archived here and will be continued exclusively on [Codeberg](https://codeberg.org/cryinkfly/Linux-KVM-Settings).
+
+
 <div id="header" align="center">
 <img align="center" src="https://github.com/user-attachments/assets/b2189ef6-26bb-453c-a394-5b23d438e617">
 <h1>[GUIDE] Tips, Tricks & Tutorials for getting fully up and running KVM (Kernel-based Virtual Machine) across various Linux distributions</h1>
